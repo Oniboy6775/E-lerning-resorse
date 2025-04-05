@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resource Center</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <script>
+    window.chtlConfig = { chatbotId: "1671986521" };
+  </script>
+  <script
+    async
+    data-id="1671986521"
+    id="chatling-embed-script"
+    type="text/javascript"
+    src="https://chatling.ai/js/embed.js"
+  ></script>
+  <body>
+    <header class="header-bg text-white py-5">
+      <div class="container">
+        <a class="btn" href="/">Home</a>
+        <h1 class="display-4">School Resource Center</h1>
+        <p class="lead">Access learning materials and books</p>
+      </div>
+    </header>
+
+    <main class="container my-5">
+      <h2 class="mb-4">Available Courses</h2>
+      <div
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
+        id="coursesContainer"
+      >
+        <!-- Course cards will be added here dynamically -->
+      </div>
+    </main>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="materialModal" tabindex="-1">
+      <div class="modal-dialog modal-content">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="list-group" id="materialsList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+      // Updated course data with links
+      const courses = [
+        {
+          title: "Machine Learning",
+          materials: [
+            {
+              name: "ML 1",
+              url: "https://drive.google.com/file/d/1DsEpAIJ4TIB2LVDtOYPqgjzl3sV25sy4/view?usp=drive_link",
+            },
+            {
+              name: "ML 2",
+              url: "https://drive.google.com/file/d/1zihAfyWYXAwZR-__DEW6Op1C3rSZWkMQ/view?usp=drive_link",
+            },
+            {
+              name: "Exam Model",
+              url: "https://drive.google.com/file/d/1fEbKyHFwdba2s7y9d2U-t60qm2J9Qo7O/view?usp=drive_link",
+            },
+          ],
+        },
+        {
+          title: "Software Engineering",
+          materials: [
+            {
+              name: "Software 1",
+              url: "https://docs.google.com/presentation/d/1l4X8jrU2S5asgnDC83Qovd2ZtKoz1P_7/edit?usp=drive_link&ouid=114098175319528021944&rtpof=true&sd=true",
+            },
+            {
+              name: "Software 2",
+              url: "https://docs.google.com/presentation/d/1w8wKLe2mb_IBGTl-gTS5ef2oJ3e4QmPT/edit?usp=drive_link&ouid=114098175319528021944&rtpof=true&sd=true",
+            },
+            {
+              name: "Software 3",
+              url: "https://docs.google.com/presentation/d/1_lZPi8RkKVFUd9qb3VIOOt-XdS24qBIA/edit?usp=drive_link&ouid=114098175319528021944&rtpof=true&sd=true",
+            },
+            // { name: "Environmental Science Guide", url: "#" },
+          ],
+        },
+        {
+          title: "Robotic",
+          materials: [
+            {
+              name: "Lecture note 1",
+              url: "https://docs.google.com/presentation/d/1P__ERhlfMAnkqL-9ktQhxz5sVeYNeRAy/edit?usp=drive_link&ouid=114098175319528021944&rtpof=true&sd=true",
+            },
+            {
+              name: "Lecture note 2",
+              url: "https://docs.google.com/presentation/d/1OEvFCygkhHddcRhsOuE5zOBzUVvFJxJA/edit?usp=drive_link&ouid=114098175319528021944&rtpof=true&sd=true",
+            },
+            // { name: "Physics Concepts Book", url: "#" },
+            // { name: "Environmental Science Guide", url: "#" },
+          ],
+        },
+        {
+          title: "Control engineering",
+          materials: [
+            {
+              name: "Lecture 1",
+              url: "https://docs.google.com/presentation/d/1g0kMSELhb-PgwUoK_QKuLaOeoF-ysEcg/edit?usp=drive_link&ouid=114098175319528021944&rtpof=true&sd=true",
+            },
+            {
+              name: "Lecture 2",
+              url: "https://docs.google.com/presentation/d/1vDjRX8FcNXph9qI7ueIJwalpgekwRyMN/edit?usp=drive_link&ouid=114098175319528021944&rtpof=true&sd=true",
+            },
+            {
+              name: "Lecture 3",
+              url: "https://docs.google.com/presentation/d/1OWD7Llu1Yje9I5c5Ij2bjg-zb93BVMdT/edit?usp=drive_link&ouid=114098175319528021944&rtpof=true&sd=true",
+            },
+            {
+              name: "Exam PQ",
+              url: "https://drive.google.com/file/d/1SByjcfWbRUE98coDivnRGPcO4v-Ygq7b/view?usp=drive_link",
+            },
+          ],
+        },
+        // {
+        //   title: "Food",
+        //   materials: [
+        //     { name: "Biology Textbook", url: "#" },
+        //     { name: "Chemistry Lab Manual", url: "#" },
+        //     { name: "Physics Concepts Book", url: "#" },
+        //     { name: "Environmental Science Guide", url: "#" },
+        //   ],
+        // },
+        // Add more courses as needed
+      ];
+
+      // Initialize courses
+      function initializeCourses() {
+        const container = document.getElementById("coursesContainer");
+
+        courses.forEach((course) => {
+          const card = document.createElement("div");
+          card.className = "col";
+          card.innerHTML = `
+                    <div class="card course-card h-100 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">${course.title}</h5>
+                        </div>
+                    </div>
+                `;
+          card.addEventListener("click", () => openModal(course));
+          container.appendChild(card);
+        });
+      }
+
+      // Modal functions
+      function openModal(course) {
+        const modalTitle = document.getElementById("modalTitle");
+        const materialsList = document.getElementById("materialsList");
+
+        modalTitle.textContent = course.title;
+        materialsList.innerHTML = course.materials
+          .map(
+            (material) => `
+                    <a href="${material.url}" 
+                       class="list-group-item list-group-item-action material-link 
+                              d-flex justify-content-between align-items-center"
+                       target="_blank">
+                        ${material.name}
+                        <span class="badge bg-primary rounded-pill">PDF</span>
+                    </a>
+                `
+          )
+          .join("");
+
+        const modal = new bootstrap.Modal(
+          document.getElementById("materialModal")
+        );
+        modal.show();
+      }
+
+      // Initialize the page
+      initializeCourses();
+    </script>
+  </body>
+</html>

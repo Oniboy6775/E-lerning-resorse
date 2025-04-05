@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #deeaef;
+}
+:root {
+  --primary100: #e2dcec;
+  --primary200: #c5b9d9;
+  --primary300: #a896c5;
+  --primary400: #8b73b2;
+  --primary500: #6e509f;
+  --primary600: #58407f;
+  --primary700: #42305f;
+  --primary800: #2c2040;
+  --primary900: #161020;
+
+  --secondary100: #d8e7eb;
+  --secondary200: #b1ced8;
+  --secondary300: #89b6c4;
+  --secondary400: #629db1;
+  --secondary500: #3b859d;
+  --secondary600: #2f6a7e;
+  --secondary700: #23505e;
+  --secondary800: #18353f;
+  --secondary900: #0c1b1f;
+}
+.btn_1,
+.btn {
+  background-color: var(--primary200);
+  border: none;
+  color: var(--secondary500);
+  padding: 4px;
+  margin: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.btn:hover {
+  background-color: var(--primary300);
+}
+
+p {
+  color: var(--primary500);
+}
+
+.course-card {
+  transition: transform 0.3s;
+}
+.course-card:hover {
+  transform: translateY(-1px);
+}
+.header-bg {
+  /* background-color: rgba(44, 62, 80, 0.7); */
+  background-color: var(--primary500);
+}
+.material-link {
+  transition: all 0.3s ease;
+}
+.material-link:hover {
+  background-color: #f8f9fa;
+  padding-left: 10px;
+}
+
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),
+    url("./images/landing4.jpg") center/cover;
+  height: 100vh;
+}
+.hero-wrapper {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary100);
+}
+.hero-title {
+  font-size: 4rem;
+  font-weight: 600;
+}
+.hero_text {
+  background-color: white;
+  color: var(--primary500);
+  font-weight: 800;
+  border: 2px solid transparent;
+}
+.feature-card {
+  transition: transform 0.3s;
+}
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+#comment-section {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#comments {
+  margin-bottom: 20px;
+}
+
+.comment {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.comment-text {
+  margin-bottom: 10px; /* Space between comment text and replies */
+}
+
+.comment-text strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.timestamp {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 5px;
+}
+
+.reply {
+  margin-left: 20px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+.reply strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.reply .timestamp {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 5px;
+}
+
+.reply-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block; /* Ensure the button is on a new line */
+  margin-top: 10px; /* Space above the button */
+}
+
+.reply-button:hover {
+  background-color: #0056b3;
+}
+
+.reply-form {
+  margin-top: 10px;
+  display: none; /* Hidden by default */
+}
+
+.reply-form input,
+.reply-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.reply-form textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.send-reply-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.send-reply-button:hover {
+  background-color: #218838;
+}
+
+#comment-form input,
+#comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#comment-form textarea {
+  resize: vertical;
+}
+
+#comment-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#comment-form button:hover {
+  background-color: #0056b3;
+}
